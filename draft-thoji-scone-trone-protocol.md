@@ -380,7 +380,7 @@ Network elements that observe TRONE indication packets MAY note the UDP 4-tuple
 for potential future TRONE handling.
 
 Network elements MUST NOT rely solely on the presence of a TRONE indication to
-confirm that a flow supports TRONE. A flow SHOULD only be confirmed as
+confirm that a flow supports TRONE. A flow is only confirmed as
 supporting TRONE when a regular TRONE packet ({{packet}}) is observed after the
 QUIC handshake has completed.
 
