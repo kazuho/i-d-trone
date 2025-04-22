@@ -331,8 +331,8 @@ first UDP datagram it sends to the TRONE Indication Pattern. This is an
 opportunistic signal that is not guaranteed to be processed by the receiver, as
 the receiver has not yet confirmed its willingness to send TRONE packets.
 
-In the case of QUIC v1, endpoints can simply append the TRONE Indication Pattern
-to the last QUIC long header packet of a UDP datagram. When such a UDP datagram
+In the case of QUIC v1, endpoints can simply append the TRONE Indication Pattern (TIP)
+after the last QUIC long header packet of a UDP datagram. When such a UDP datagram
 is received by an endpoint that does not understand TRONE, the TRONE Indication
 Pattern would be ignored while the long header packets will be processed
 ({{Section 12.2 of QUIC}}).
