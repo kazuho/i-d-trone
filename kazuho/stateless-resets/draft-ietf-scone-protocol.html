@@ -1840,13 +1840,13 @@ be coalesced with other QUIC packets.<a href="#section-5.3-1" class="pilcrow">¶
 byte) and the SCONE protocol version (0x6f7dc0fd or 0xef7dc0fd in the next four
 bytes). The 7-bit Rate Signal can be extracted by combining the low 6 bits
 of the first byte with the most significant bit of the version field. A SCONE
-packet <span class="bcp14">MAY</span> be discarded, along with any packets that come after it in the same
-datagram, if the Source Connection ID is not consistent with those coalesced
-packets, as specified in <a href="#packet" class="auto internal xref">Section 5</a>.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
-<p id="section-5.3-3">A receiver <span class="bcp14">MAY</span> discard a datagram that contains more than one SCONE packet.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
-<p id="section-5.3-4">A SCONE packet is discarded if the rate signal is unknown (127).<a href="#section-5.3-4" class="pilcrow">¶</a></p>
-<p id="section-5.3-5">A SCONE packet <span class="bcp14">MUST</span> be discarded if the Destination Connection ID does not match
-one recognized by the receiving endpoint.<a href="#section-5.3-5" class="pilcrow">¶</a></p>
+packet <span class="bcp14">MUST</span> be discarded if the Destination Connection ID is not consistent with
+those coalesced packets, as specified in <a href="#packet" class="auto internal xref">Section 5</a>. Similarly, if the Source
+Connection ID is inconsistent, the SCONE packet <span class="bcp14">MAY</span> be discarded.<a href="#section-5.3-2" class="pilcrow">¶</a></p>
+<p id="section-5.3-3">When discarding a SCONE packet due to inconsistent Connection IDs, endpoints <span class="bcp14">MAY</span>
+also discard the QUIC packets that were coalesced into the same datagram.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
+<p id="section-5.3-4">A receiver <span class="bcp14">MAY</span> discard a datagram that contains more than one SCONE packet.<a href="#section-5.3-4" class="pilcrow">¶</a></p>
+<p id="section-5.3-5">A SCONE packet is discarded if the rate signal is unknown (127).<a href="#section-5.3-5" class="pilcrow">¶</a></p>
 <p id="section-5.3-6">If a connection uses multiple DSCP markings <span>[<a href="#RFC2474" class="cite xref">RFC2474</a>]</span>,
 the throughput advice that is received on datagrams with one marking
 might not apply to datagrams that have different markings.<a href="#section-5.3-6" class="pilcrow">¶</a></p>
